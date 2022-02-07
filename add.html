@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="jquery.min.js"></script>
+</head>
+<style>
+    .main div{
+        padding: 10px;
+    }
+    input{
+        display: flex;
+        flex-direction: column;
+    }
+</style>
+<body>
+    <a href="index.html" class="bars"><i class="fa fa-arrow-left"></i></a>
+    <div class="main">
+        <div id="box1">
+        <div >First Name : <input type="text" id="box"></div>
+        <div >Last Name : <input type="text" id="box2"></div>
+        <div>Adress : <input type="text" id="box2"></div>
+        <div>Mobile : <input type="number" id="box3"></div>
+        <div>Email : <input type="email" id="box4"></div>
+        <div>Password : <input type="password" id="box5"></div>
+        <div>Confirm pass : <input type="password" id="box6"></div>
+        <button value="add" id="add" onclick="add_item()">Add account</button>
+    </div></div>
+    <div class="row">
+        <ul id="list_item">
+        </ul>
+    </div>
+    <script>
+         function add_item() {
+            let item = document.getElementById("box");
+            let item2 = document.getElementById("box2");
+            let list_item = document.getElementById("list_item");
+            if (item.value != "") {
+                let list = document.createElement("p");
+                list.appendChild(document.createTextNode("Welcome "+item.value+" "+item2.value+" your account created successfully.."));
+                list_item.appendChild(list);
+                item.value=""
+                
+                list.onclick = function(){
+                    this.parentNode.removeChild(this);
+                }
+            }
+            else{
+                alert("please add a value to item");
+            }
+        }
+        $(document).ready(function(){
+            $("#add").click(function(){
+                $("p").css("color","black")
+                $("p").css("fontSize","1.3rem")
+                $("p").css("height","40px")
+                $("p").css("width","auto")
+                $("p").css("textAlign","center")
+                $("p").css("borderRadius","10px")
+                $("p").css("backgroundColor","#dddddd")
+            })
+        })
+    </script>
+</body>
+</html>
